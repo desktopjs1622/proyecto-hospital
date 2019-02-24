@@ -79,9 +79,9 @@
     {% include "menu.html" %}
   {% endblock menu_lateral %}
 
+  <div class="content-wrapper">
   <!-- Desde aqui va el contenido para mostrarse en la plantilla -->
   {% block sub_banner %}
-  <div class="content-wrapper">
     <section class="content-header">
       <h1>
         Historias
@@ -92,15 +92,92 @@
         <li class="active">Inicio</li>
       </ol>
     </section>
-  </div>
   {% endblock sub_banner %}
 
   {% block contenido %}
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Iusto qui atque esse laudantium magnam, consequuntur laborum sapiente quidem, unde commodi,
-    dicta voluptates accusantium aperiam officia rem eum architecto alias sit?</p>
-  {% endblock contenido %}
-
+       <!-- Main content -->
+       <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Hover Data Table</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 4.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td> 4</td>
+                      <td>X</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 5.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td>5</td>
+                      <td>C</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 5.5
+                      </td>
+                      <td>Win 95+</td>
+                      <td>5.5</td>
+                      <td>A</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 6
+                      </td>
+                      <td>Win 98+</td>
+                      <td>6</td>
+                      <td>A</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
+                    </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+    {% endblock contenido %}
+  </div>
+  
   {% block footer %}
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -130,6 +207,19 @@
 <script src="{{ static('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ static('dist/js/demo.js')}}"></script>
+<script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
 {% endblock javascripts %}
 
 </body>
