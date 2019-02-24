@@ -6,6 +6,9 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Index {% endblock title %} ::.</title>
+  {% block icons_title %}
+  <link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />
+  {% endblock icons_title %}
   {% block stylesheets %}
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ static('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -184,7 +187,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2017-2019 </strong> All rights
+    <strong>Desarrollado por {{ settings.DESARROLLADO_POR }} | Copyright &copy; 2017-2019 </strong> All rights
     reserved.
   </footer>
   {% endblock footer %}

@@ -83,9 +83,11 @@ TEMPLATES = [
 ]
 
 NOMBRE_APP = 'Hospital'
+DESARROLLADO_POR = 'Cristofer Urbina'
 
 SETTINGS_EXPORT = [
-    'NOMBRE_APP'
+    'NOMBRE_APP',
+    'DESARROLLADO_POR'
 ]
 
 WSGI_APPLICATION = 'hospitalito.wsgi.application'

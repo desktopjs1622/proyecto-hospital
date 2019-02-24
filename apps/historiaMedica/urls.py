@@ -13,7 +13,7 @@ urlpatterns = [
     path('registro-de-paciente/',
         RegistroPaciente.as_view(
             template_name='registro_paciente_formulario.html',
-            extra_context={'titulo': 'Registro-Paciente', 'title': 'Registro de Paciente'},
+            extra_context={'titulo': 'Registro', 'title': 'Registro de Paciente'},
         ), 
         name='registro-paciente'),
 ]
