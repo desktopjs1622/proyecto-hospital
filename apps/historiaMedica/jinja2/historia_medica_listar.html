@@ -1,0 +1,18 @@
+{% extends 'base_jinja.html' %}
+
+{% block title %} {{ title }} {% endblock title %}
+
+{% block sub_banner %}
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      {{ titulo }}
+      <small>de pacientes</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i>Historia Médica</a></li>
+      <li class="active">Pacientes</li>
+    </ol>
+  </section>
+</div>
+{% endblock sub_banner %}

@@ -56,10 +56,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
                 </div>
               </li>
             </ul>
@@ -73,28 +73,33 @@
     </nav>
   </header>
     {% endblock navegacion %}
-<!-- Desde aqui parte la vista principal del template index.html -->
+
+<!-- Seccion de Configuracion del menu lateral -->
   {% block menu_lateral %}
     {% include "menu.html" %}
   {% endblock menu_lateral %}
-  
 
   <!-- Desde aqui va el contenido para mostrarse en la plantilla -->
+  {% block sub_banner %}
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    {% block sub_banner %}
     <section class="content-header">
       <h1>
-        Dashboard
+        Historias
         <small>Panel de Control</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Historia Médica</a></li>
+        <li class="active">Inicio</li>
       </ol>
     </section>
-    {% endblock sub_banner %}
   </div>
+  {% endblock sub_banner %}
+
+  {% block contenido %}
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Iusto qui atque esse laudantium magnam, consequuntur laborum sapiente quidem, unde commodi,
+    dicta voluptates accusantium aperiam officia rem eum architecto alias sit?</p>
+  {% endblock contenido %}
 
   {% block footer %}
   <!-- /.content-wrapper -->
