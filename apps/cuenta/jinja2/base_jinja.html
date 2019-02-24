@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <title>{% block title %} Hospital Municipal {% endblock title %}</title>
+  <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Index {% endblock title %} ::.</title>
   {% block stylesheets %}
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ static('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -22,9 +22,9 @@
   <link rel="stylesheet" href="{{ static('bower_components/morris.js/morris.css')}}">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
   {% endblock %}
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 {% block navegacion %}
   <header class="main-header">
@@ -73,46 +73,16 @@
     </nav>
   </header>
     {% endblock navegacion %}
+<!-- Desde aqui parte la vista principal del template index.html -->
+  {% block menu_lateral %}
+    {% include "menu.html" %}
+  {% endblock menu_lateral %}
+  
 
-    {% block menu-lateral %}
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="{{ static('dist/img/avatar.png')}}" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <!--<li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>!-->
-          </ul>
-        </li>
-          </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-   {% endbloc menu-lateral %}
-
-  <!-- Desde aqui parte la vista principal del template index.html -->
+  <!-- Desde aqui va el contenido para mostrarse en la plantilla -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    {% block sub_banner %}
     <section class="content-header">
       <h1>
         Dashboard
@@ -123,15 +93,19 @@
         <li class="active">Dashboard</li>
       </ol>
     </section>
+    {% endblock sub_banner %}
   </div>
+
+  {% block footer %}
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2017-2019 </strong> All rights
     reserved.
   </footer>
+  {% endblock footer %}
 
   {% block javascripts %}
 <!-- jQuery 3 -->
@@ -152,5 +126,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ static('dist/js/demo.js')}}"></script>
 {% endblock javascripts %}
+
 </body>
 </html>
