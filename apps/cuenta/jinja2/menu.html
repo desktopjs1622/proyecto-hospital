@@ -23,8 +23,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Historias</a></li>
-            <!--<li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>!-->
+              <li class="{% if 'historia/listado' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:listar-historia') }}"><i class="fa fa-circle-o"></i> Historias</a></li>
+              <li class="{% if 'historia/registro-de-paciente' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:registro-paciente') }}"><i class="fa fa-circle-o"></i> Registro Paciente</a></li>
           </ul>
         </li>
           </ul>

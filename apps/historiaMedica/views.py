@@ -6,3 +6,6 @@ que tienen su historia medica
 '''
 class ListadoHistoriaMedica(TemplateView):
     pass
+
+class RegistroPaciente(TemplateView):
+    pass

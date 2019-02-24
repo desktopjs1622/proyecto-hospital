@@ -1,6 +1,7 @@
 from django.urls import path
-from apps.historiaMedica.views import ListadoHistoriaMedica
+from apps.historiaMedica.views import ListadoHistoriaMedica, RegistroPaciente
 
+app_name = 'historiaMedica'
 urlpatterns = [
     path('listado/', 
         ListadoHistoriaMedica.as_view(
@@ -8,4 +9,11 @@ urlpatterns = [
             extra_context = {'titulo': 'Listado General', 'title':'Historias Médicas'},
         ), 
         name='listar-historia'),
+
+    path('registro-de-paciente/',
+        RegistroPaciente.as_view(
+            template_name='registro_paciente_formulario.html',
+            extra_context={'titulo': 'Registro-Paciente', 'title': 'Registro de Paciente'},
+        ), 
+        name='registro-paciente'),
 ]
