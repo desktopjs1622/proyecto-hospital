@@ -15,7 +15,19 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header text-center">Menú de Navegación</li>
-        <li class="active treeview">
+        <li class="treeview"><!--atributo de la clase "active"-->
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Pacientes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li class="{% if 'paciente/listado_de_paciente' in request.path %}active{% endif %}"><a href="{{ url('paciente:lista-paciente') }}"><i class="fa fa-circle-o"></i> Listado de Paciente</a></li>
+              <li class="{% if 'paciente/registro-de-paciente' in request.path %}active{% endif %}"><a href="{{ url('paciente:registro-paciente') }}"><i class="fa fa-circle-o"></i> Registro de Paciente</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><!--atributo de la clase "active"-->
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Historia Médica</span>
             <span class="pull-right-container">
@@ -23,11 +35,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="{% if 'historia/listado' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:listar-historia') }}"><i class="fa fa-circle-o"></i> Historias</a></li>
-              <li class="{% if 'historia/registro-de-paciente' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:registro-paciente') }}"><i class="fa fa-circle-o"></i> Registro Paciente</a></li>
+              <li class="{% if 'historia/listado_de_historia' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:lista-historia') }}"><i class="fa fa-circle-o"></i> Listado de Historias</a></li>
+              <li class="{% if 'historia/registro_de_historia' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:registro-historia') }}"><i class="fa fa-circle-o"></i> Registro de Historia Médica</a></li>
           </ul>
         </li>
-          </ul>
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
