@@ -1,6 +1,6 @@
 {% extends "base_jinja.html" %}
 
-{% block title %} {{ titulo }} {% endblock title %}
+{% block title %} {{ titulo }} | Historia Médica {% endblock title %}
 
 {% block stylesheets %}
     {{ super() }}
@@ -53,20 +53,6 @@
                                 <div class="form-group">
                                     <label for="" class="col-sm-3 control-label">Prioritaria</label>
                                     <div class="col-sm-9">
-                                        <div class="input-group">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="" id="" value="True" {% if activo == True%} checked{% endif %}>
-                                                    Activo
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="" id="" value="False" {% if activo == False %} checked{% endif %}>
-                                                    Inactivo
-                                                </label>
-                                            </div>
-                                        </div>
                                         <span class="help-block">
                                             
                                                 <ul>
