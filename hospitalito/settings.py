@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.cuenta',
-    'apps.historiaMedica',
-    'apps.citaMedica',
-    'apps.paciente',
+    'cuenta',
+    'historiaMedica',
+    'citaMedica',
+    'paciente',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +128,8 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
 ]
+
+LOGIN_URL = 'cuenta:inicio-sesion'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
