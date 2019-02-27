@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Login {% endblock title %} ::.</title>
+  {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
+  {% block style %}
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ static('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
@@ -18,16 +20,19 @@
   <link rel="stylesheet" href="{{ static('plugins/iCheck/square/blue.css') }}">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  {% endblock style %}
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
+  {% block titulo_mini %}
   <div class="login-logo">
-    <a href=""><b>Admin</b>LTE</a>
+    <b>Hospital</b> Municipal <h5>El Junquito</h5>
   </div>
+  {% endblock titulo_mini %}
+  {% block contents %}
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-
     <form action="" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
@@ -57,15 +62,16 @@
     </div>
   </div>
   <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
-
+</div><!-- /.login-box -->
+{% endblock contents %}
+{% block js %}
 <!-- jQuery 3 -->
 <script src="{{ static('bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ static('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- iCheck -->
 <script src="{{ static('plugins/iCheck/icheck.min.js') }}"></script>
+
 <script>
   $(function () {
     $('input').iCheck({
@@ -75,5 +81,6 @@
     });
   });
 </script>
+{% endblock js %}
 </body>
 </html>
