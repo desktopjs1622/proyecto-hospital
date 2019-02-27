@@ -4,19 +4,12 @@ from cuenta.views import Login
 
 app_name = 'cuenta'
 urlpatterns = [
-    path( #Iniciar la sesión utilizando bootstrap
+    path( # Iniciar sesion utilizando materialize
         'login/', 
         Login.as_view(
             template_name='login.html'
         ), 
         name='inicio-sesion'
-    ),
-    path(# Iniciar sesion utilizando materialize
-        'login2/', 
-        Login.as_view(
-            template_name='login2.html'
-        ), 
-        name='login'
     ),
     path(#Registro de Nuevos Usuarios
         'registro_usuario/',
