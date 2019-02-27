@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Login {% endblock title %} ::.</title>
+    {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
+    {% block materialize %}
+    <link rel="stylesheet" href="{{ static('librerias/materialize/css/materialize.min.css')}}">
+    <link rel="stylesheet" href="{{ static('css/estilo.css') }}">
+    {% endblock materialize %}
+</head>
+<body>
+    {% block contents %}
+    <center>
+        <img src="{{ static('dist/img/banner2.png') }}" class="img-responsive" alt="" style="display:flex; margin:0 auto;">
+    </center>
+<div class="section"></div>
+<main>
+    <center>
+    <div class="section"></div>
+    <h5 class="saludologin">¡Bienvenido al Sistema de Control y Gestión de Historias Médicas!</h5>
+    <h6 class="saludologin">Del Hospital Municipal "El Junquito"</h6>
+    <div class="section"></div>
+    <div class="container">
+        <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+            <div id="loginMsg"></div>
+            <form action="" class="col s12 m12 l12" autocomplete="off">
+                <img src="{{ static ('dist/img/mujer.svg') }}" class="loginimg"></img><img src="{{ static('dist/img/hombre.svg') }}" class="loginimg"></img>
+                <div class="input-field col s11 m11 l11">
+                    <input id='correoLogin' class='validate' type='text' name='correo' onpaste="return false" />
+                    <label id="flemail" for='email'>Escriba su Email</label>
+                </div>
+                <div class="input-field col s11 m11 l11">
+                    <input class='validate' type='password' name='password' id='passLogin' onpaste="return false" />
+                    <label for='password'>Escriba su Contraseña</label>
+                </div>
+                <center>
+                <div class='row'>
+                    <div class="col s12 m12 l12">
+                    <input type="hidden" name="ajax">
+                    <button type='submit' id='btnLoginAcc' class='btn btn-medium waves-effect indigo' onclick="">Ingresar</button>
+                    </div>
+                </div>
+                </center>
+            </form>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <a class='saludologin' href="{{ url('cuenta:registro-de-usuario') }}"><b>Registrate!</b></a> 
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class='saludologin' href="{{ url('cuenta:recuperar-cuenta') }}"><b>¡Recuperar Contraseña!</b></a>
+            </div>
+        </div>
+       </div>
+    </div>
+    </center>
+</main>
+{% endblock contents %}
+   {% block java %}
+   <script src="{{ static('librerias/materialize/js/materialize.min.js') }}"></script>
+   {% endblock java %}
+</body>
+</html>

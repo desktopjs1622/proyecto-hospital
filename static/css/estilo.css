@@ -1,0 +1,17 @@
+body{
+	background-color: #E9EAEC;
+	background-image: url("../dist/img/seigaiha.png");
+}
+main {
+	flex: 1 0 auto;
+}
+section{
+	margin-left:115px;
+	margin-top:35px;
+}
+.loginimg{
+	width:100px;
+}
+.saludologin{
+	color:#388E3C;
+}

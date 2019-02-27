@@ -2,29 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>.::{{ settings.NOMBRE_APP }} | {% block title %} Index {% endblock title %} ::.</title>
   {% block icons_title %}
   <link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />
   {% endblock icons_title %}
   {% block stylesheets %}
+  <!--PACE css -->
+  <link rel="stylesheet" href="{{ static('librerias/PACE/themes/blue/pace-theme-minimal.css')}}">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ static('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome 
-  <link rel="stylesheet" href="{{ static('bower_components/font-awesome/css/font-awesome.min.css') }}">-->
+  <link rel="stylesheet" href="{{ static('librerias/font-awesome/css/font-awesome.min.css') }}">-->
 <!-- Font Awesome 4.7.0 -->
-  <link rel="stylesheet" href="{{ static('bower_components/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/font-awesome-4.7.0/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ static('bower_components/Ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/Ionicons/css/ionicons.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ static('dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ static('dist/css/skins/_all-skins.min.css')}}">
   <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ static('bower_components/morris.js/morris.css')}}">
+  <link rel="stylesheet" href="{{ static('librerias/morris.js/morris.css')}}">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   {% endblock %}
@@ -168,16 +170,18 @@
   {% endblock footer %}
 
   {% block javascripts %}
+<!--PACE css -->
+<script src="{{ static('librerias/PACE/pace.min.js')}}"></script>
 <!-- jQuery 3 -->
-<script src="{{ static('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ static('librerias/jquery/dist/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ static('bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{ static('librerias/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ static('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!-- AdminLTE App -->
 <script src="{{ static('dist/js/adminlte.min.js')}}"></script>

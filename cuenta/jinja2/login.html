@@ -2,18 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Login {% endblock title %} ::.</title>
   {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
   {% block style %}
+  <!--PACE css -->
+  <link rel="stylesheet" href="{{ static('librerias/PACE/themes/blue/pace-theme-minimal.css')}}">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ static('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ static('bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ static('bower_components/Ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ static('librerias/Ionicons/css/ionicons.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ static('dist/css/AdminLTE.min.css') }}">
   <!-- iCheck -->
@@ -32,7 +34,7 @@
   {% block contents %}
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Inicia sesión</p>
     <form action="" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
@@ -43,20 +45,18 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-          <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
         </div>
-        <div class="col-md-3"></div>
         <!-- /.col -->
       </div>
     </form>
     <br />
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-xs-6 col-md-6">
         <a href="{{ url('cuenta:registro-de-usuario') }}" class="text-center">Nuevo Registro</a>
       </div>
-      <div class="col-md-6">
+      <div class="col-xs-6 col-md-6">
         <a href="{{ url('cuenta:recuperar-cuenta') }}">Recuperar Password</a><br>
       </div>
     </div>
@@ -65,10 +65,12 @@
 </div><!-- /.login-box -->
 {% endblock contents %}
 {% block js %}
+<!--PACE css -->
+<script src="{{ static('librerias/PACE/pace.min.js')}}"></script>
 <!-- jQuery 3 -->
-<script src="{{ static('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ static('librerias/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ static('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- iCheck -->
 <script src="{{ static('plugins/iCheck/icheck.min.js') }}"></script>
 
