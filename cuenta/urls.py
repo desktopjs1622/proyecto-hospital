@@ -12,14 +12,14 @@ urlpatterns = [
         name='inicio-sesion'
     ),
     path(#Registro de Nuevos Usuarios
-        'registro_usuario/',
+        'login/nuevo-registro/',
         Login.as_view(
             template_name='registro_usuario.html'
         ), 
         name='registro-de-usuario'
     ),
     path(
-        'recuperar_cuenta/', 
+        'login/recuperar/', 
         Login.as_view(
             template_name='recuperar_cuenta.html'
         ), 

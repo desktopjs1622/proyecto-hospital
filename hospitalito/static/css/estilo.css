@@ -15,3 +15,8 @@ section{
 .saludologin{
 	color:#388E3C;
 }
+#loginbtn{
+	float: right;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
