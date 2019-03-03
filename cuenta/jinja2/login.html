@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Login {% endblock title %} ::.</title>
     {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
@@ -10,15 +10,13 @@
     <!--===============================================================================================-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="{{ static('librerias/materialize/css/materialize.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="{{ static('librerias/PACE/themes/blue/pace-theme-minimal.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ static('librerias/iconic/css/material-design-iconic-font.min.css')}}">
-    <!--===============================================================================================-->
     <!--===============================================================================================-->
     <link rel="stylesheet" href="{{ static('css/estilo.css') }}">
     <!--===============================================================================================-->
+    <style>
+        #modal1 { max-height: 100%; overflow: visible}
+        #modal2 { max-height: 100%; overflow: visible}
+    </style>
     {% endblock materialize %}
 </head>
 <body>
@@ -59,14 +57,14 @@
             </form>
             {% endblock contents %}
         </div>
+        {% block modal %}
             <div id="modal1" class="modal">
                 <div class="modal-content" style="background-image: url({{ static('dist/img/seigaiha.png') }});">
                     <div class="container">
-                        <div class="container">
+                        <h6 class="saludologin">Registro Nuevos Usuarios</h6>
                          <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                             <img src="{{ static ('dist/img/usuarios.svg') }}" class="loginimg">
-                            <h6 class="saludologin">Registro Nuevos Usuarios</h6>
-                            <div class="row">
+                                <div class="row">
                                 <form action="" autocomplete="off">
                                     <div class="input-field col s12 l6">
                                         <input type="text" id="first_name" class="validate">
@@ -92,26 +90,38 @@
                                         <input type="password" id="repit_password" class="validate" autocomplete="new-password">
                                         <label for="repit_password">Repetir password</label>
                                     </div>
+                                    <div id="secreta" class="input-field col s12 l6">
+                                    <select>
+                                          <option value="" disabled selected>Seleccione</option>
+                                          <option value="1">Color Favorito</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                    </select>
+                                    <label for="secreta" >Pregunta Secreta</label>
+                                  </div>
+                                  <div class="input-field col s12 l6">
+                                        <input type="text" id="respuesta" class="validate">
+                                        <label for="respuesta">Respuesta</label>
+                                    </div>
                                 </form> 
                             </div>
                             <div class="row">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Registrar
+                                <button class="btn waves-effect waves-light floating pulse" type="submit" name="action">Registrar
                                     <i class="material-icons right">send</i>
                                 </button>
                                 <button class="modal-close waves-effect red darken-4 btn"><i class="material-icons right">close</i>Cerrar</button>
                             </div>
                         </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <div id="modal2" class="modal">
                 <div class="modal-content" style="background-image: url({{ static('dist/img/seigaiha.png') }});">
                     <div class="container">
-                        <div class="container">
+                    <h6 class="saludologin">Recuperar Cuenta</h6>
                          <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                             <img src="{{ static ('dist/img/usuario.svg') }}" class="loginimg">
-                            <h6 class="saludologin">Recuperar Cuenta</h6>
                             <div class="row">
                                 <form action="">
                                     <div class="input-field col s12 l12">
@@ -121,16 +131,16 @@
                                 </form> 
                             </div>
                             <div class="row">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Recuperar
+                                <button class="btn waves-effect waves-light floating pulse" type="submit" name="action">Recuperar
                                     <i class="material-icons right">send</i>
                                 </button>
                                 <button class="modal-close waves-effect red darken-4 btn"><i class="material-icons right">close</i>Cerrar</button>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        {% endblock modal %}
         <br><br>
         {% block enlaces %}
         <div class="container">
@@ -153,6 +163,9 @@
   <script>
   $(document).ready(function(){
     $('.modal').modal();
+  });
+   $(document).ready(function(){
+    $('select').formSelect();
   });
   </script>
    {% endblock java %}

@@ -1,3 +1,7 @@
+@import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
+@import url('../librerias/materialize/css/materialize.min.css');
+@import url('../librerias/iconic/css/material-design-iconic-font.min.css');
+
 body{
 	background-color: #E9EAEC;
 	background-image: url("../dist/img/seigaiha.png");

@@ -24,5 +24,5 @@ urlpatterns = [
             template_name='recuperar_cuenta.html'
         ), 
         name='recuperar-cuenta'
-    )
+    ),
 ]
