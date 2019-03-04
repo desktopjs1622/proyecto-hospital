@@ -2,73 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>.::{{ settings.NOMBRE_APP }} | {% block title %} Index {% endblock title %} ::.</title>
+  <title>.::{{ settings.NOMBRE_APP }} | {% block title %} Pacientes {% endblock title %} ::.</title>
+  
   {% block icons_title %}
   <link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />
   {% endblock icons_title %}
-  {% block stylesheets %}
-  <!--===============================================================================================-->
-  <!--PACE css -->
-  <link rel="stylesheet" href="{{ static('librerias/PACE/themes/blue/pace-theme-minimal.css')}}">
-  <!--===============================================================================================-->
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ static('librerias/bootstrap/dist/css/bootstrap.min.css') }}">
-  <!--===============================================================================================-->
-  <!-- Font Awesome 
-  <link rel="stylesheet" href="{{ static('librerias/font-awesome/css/font-awesome.min.css') }}">-->
-  <!--===============================================================================================-->
-<!-- Font Awesome 4.7.0 -->
-  <link rel="stylesheet" href="{{ static('librerias/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-  <!--===============================================================================================-->
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ static('librerias/Ionicons/css/ionicons.min.css') }}">
-  <!--===============================================================================================-->
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ static('dist/css/AdminLTE.min.css')}}">
-  <!--===============================================================================================-->
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ static('dist/css/skins/_all-skins.min.css')}}">
-  <!--===============================================================================================-->
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ static('librerias/morris.js/morris.css')}}">
-  <!--===============================================================================================-->
-  <!-- Google Font -->
+  {% block estilos %}
+    <!-- Enlace para llamar todos los estilos y librerias CSS !-->
+  <link rel="stylesheet" href="{{ static('css/estilos.css') }}">
+    <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <!--===============================================================================================-->
-  {% endblock %}
+  {% endblock estilos %}
 </head>
-
 <body class="hold-transition skin-blue sidebar-mini">
-{% block navegacion %}
+<div class="wrapper">
+  {% block navegacion %}
   <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini">H<b>M</b>J</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">Hosp.<b>Municipal</b>Junquito</span>
+    </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only" title="Navegador">Toggle navigation</span>
       </a>
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ static('dist/img/avatar.png')}}" class="user-image" alt="User Image">
+              <img src="{{ static('dist/img/avatar.png') }}" class="user-image" alt="User Image">
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ static('dist/img/avatar.png')}}" class="img-circle" alt="User Image">
+                <img src="{{ static('dist/img/avatar.png') }}" class="img-circle" alt="User Image">
 
-                <p>
+                 <p>
                   Nombre del usuario
                   <small>logeado</small>
-                </p>
+                </p
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
@@ -76,7 +57,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                  <a href="#" class="btn btn-default btn-flat">Cerrar</a>
                 </div>
               </li>
             </ul>
@@ -89,85 +70,41 @@
       </div>
     </nav>
   </header>
-    {% endblock navegacion %}
+  {% endblock navegacion %}
 
-<!-- Seccion de Configuracion del menu lateral -->
-  {% block menu_lateral %}
+  <!-- Menú lateral -->
+  {% block menu %}
     {% include "menu.html" %}
-  {% endblock menu_lateral %}
+  {% endblock menu %}
 
-  <div class="content-wrapper">
-  <!-- Desde aqui va el contenido para mostrarse en la plantilla -->
-  {% block sub_banner %}
+  <!-- Contenedor principal mejor dicho es donde se colocar el texto
+  tablas y formularios -->
+  <div id="fondo" class="content-wrapper">
+    {% block sub_banner %}
     <section class="content-header">
       <h1>
-        Historias
-        <small>Panel de Control</small>
+        Dashboard
+        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Historia Médica</a></li>
-        <li class="active">Inicio</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
       </ol>
     </section>
-  {% endblock sub_banner %}
 
-  {% block contenido %}
-       <!-- Main content -->
-       <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title">Hover Data Table</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 4.0
-                      </td>
-                      <td>Win 95+</td>
-                      <td> 4</td>
-                      <td>X</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
-                    </tr>
-                    </tfoot>
-                  </table>
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
+    {% endblock sub_banner %}
+
+    {% block contenido %}
+    <section class="content">
+      
+     
+    </section>
     {% endblock contenido %}
   </div>
-  
+  <!-- Aqui Finaliza el Contenedor principal
+  donde se colocara el texto, tablas 
+  y formularios -->
+
   {% block footer %}
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -179,41 +116,51 @@
   </footer>
   {% endblock footer %}
 
-  {% block javascripts %}
-<!--PACE css -->
-<script src="{{ static('librerias/PACE/pace.min.js')}}"></script>
+{% block javascripts %}
 <!-- jQuery 3 -->
-<script src="{{ static('librerias/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ static('libreria/jquery/dist/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ static('librerias/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{ static('libreria/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-
-<!-- AdminLTE App -->
-<script src="{{ static('dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ static('dist/js/pages/dashboard.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ static('dist/js/demo.js')}}"></script>
+<script src="{{ static('libreria/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- Material Design -->
+<script src="{{ static('dist/js/material.min.js') }}"></script>
+<script src="{{ static('dist/js/ripples.min.js') }}"></script>
 <script>
-    $(function () {
-      $('#example1').DataTable()
-      $('#example2').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : false,
-        'ordering'    : true,
-        'info'        : true,
-        'autoWidth'   : false
-      })
-    })
-  </script>
+    $.material.init();
+</script>
+<!-- Morris.js charts -->
+<script src="{{ static('libreria/raphael/raphael.min.js') }}"></script>
+<script src="libreria/morris.js/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="{{ static('libreria/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+<!-- jvectormap -->
+<script src="{{ static('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ static('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ static('libreria/jquery-knob/dist/jquery.knob.min.js') }}"></script>
+<!-- daterangepicker -->
+<script src="{{ static('libreria/moment/min/moment.min.js') }}"></script>
+<script src="{{ static('libreria/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<!-- datepicker -->
+<script src="{{ static('libreria/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{ static('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+<!-- Slimscroll -->
+<script src="{{ static('libreria/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ static('libreria/fastclick/lib/fastclick.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ static('dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ static('dist/js/pages/dashboard.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ static('dist/js/demo.js') }}"></script>
 
 {% endblock javascripts %}
-
 </body>
 </html>

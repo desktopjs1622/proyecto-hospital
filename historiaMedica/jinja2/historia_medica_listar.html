@@ -1,11 +1,11 @@
 {% extends 'base_jinja.html' %}
 
-{% block stylesheets %}
+{% block estilos %}
     {{ super() }}
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{ static('librerias/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ static('librerias/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ static('librerias/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('libreria/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('libreria/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('libreria/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}">
     <style>
         .mytex {
             min-width: 80px !important;
@@ -14,7 +14,7 @@
             display: inline-block;
         }
     </style>
-{% endblock stylesheets %}
+{% endblock estilos %}
 
 <div class="content-wrapper"><!-- comienzo del contenedor principal -->
     {% block sub_banner %}
@@ -91,18 +91,18 @@
 {% block javascripts %}
     {{ super() }}
     <!-- DataTables -->
-    <script src="{{ static('librerias/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
-    <script src="{{ static('librerias/jszip/dist/jszip.min.js') }}"></script>
-    <script src="{{ static('librerias/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ static('librerias/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ static('librerias/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ static('libreria/jszip/dist/jszip.min.js') }}"></script>
+    <script src="{{ static('libreria/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ static('libreria/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ static('libreria/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- page script -->
     <script>
         $(document).ready(function() {
