@@ -11,7 +11,7 @@
   {% endblock icons_title %}
   {% block estilos %}
     <!-- Enlace para llamar todos los estilos y librerias CSS !-->
-  <link rel="stylesheet" href="{{ static('css/estilos.css') }}">
+  <link rel="stylesheet" href="{{ static('css/style.css') }}">
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   {% endblock estilos %}
@@ -118,49 +118,24 @@
 
 {% block javascripts %}
 <!-- jQuery 3 -->
-<script src="{{ static('libreria/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ static('librerias/jquery/dist/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ static('libreria/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ static('librerias/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ static('libreria/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- Material Design -->
 <script src="{{ static('dist/js/material.min.js') }}"></script>
 <script src="{{ static('dist/js/ripples.min.js') }}"></script>
 <script>
     $.material.init();
 </script>
-<!-- Morris.js charts -->
-<script src="{{ static('libreria/raphael/raphael.min.js') }}"></script>
-<script src="libreria/morris.js/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="{{ static('libreria/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
-<!-- jvectormap -->
-<script src="{{ static('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ static('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ static('libreria/jquery-knob/dist/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ static('libreria/moment/min/moment.min.js') }}"></script>
-<script src="{{ static('libreria/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-<!-- datepicker -->
-<script src="{{ static('libreria/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="{{ static('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-<!-- Slimscroll -->
-<script src="{{ static('libreria/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-<!-- FastClick -->
-<script src="{{ static('libreria/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ static('dist/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ static('dist/js/pages/dashboard.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ static('dist/js/demo.js') }}"></script>
-
+  <script src="{{ static('librerias/PACE/pace.min.js') }}"></script>
 {% endblock javascripts %}
 </body>
 </html>

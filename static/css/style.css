@@ -1,4 +1,4 @@
-@import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
+@import url('../librerias/PACE/themes/blue/pace-theme-center-atom.css');
 @import url('../librerias/bootstrap/dist/css/bootstrap.min.css');
 @import url('../librerias/font-awesome/css/font-awesome.min.css');
 @import url('../librerias/Ionicons/css/ionicons.min.css');
@@ -12,6 +12,7 @@
 @import url('../librerias/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
 @import url('../librerias/bootstrap-daterangepicker/daterangepicker.css');
 @import url('../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');
+
 
 #fondo {
   background-color: #E9EAEC;
