@@ -5,7 +5,7 @@ from cuenta.views import Login
 app_name = 'cuenta'
 urlpatterns = [
     path( # Iniciar sesion, Registro de Usuario y Recuperar Cuenta
-        'inicio/', 
+        'login/', 
         Login.as_view(
             template_name='login.html'
         ), 
