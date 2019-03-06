@@ -1,0 +1,20 @@
+@import url('../librerias/PACE/themes/blue/pace-theme-center-atom.css');
+@import url('../librerias/bootstrap/dist/css/bootstrap.min.css');
+@import url('../librerias/font-awesome/css/font-awesome.min.css');
+@import url('../librerias/Ionicons/css/ionicons.min.css');
+@import url('../dist/css/AdminLTE.min.css');
+@import url('../dist/css/bootstrap-material-design.min.css');
+@import url('../dist/css/ripples.min.css');
+@import url('../dist/css/MaterialAdminLTE.min.css');
+@import url('../dist/css/skins/all-md-skins.min.css');
+@import url('../librerias/morris.js/morris.css');
+@import url('../librerias/jvectormap/jquery-jvectormap.css');
+@import url('../librerias/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
+@import url('../librerias/bootstrap-daterangepicker/daterangepicker.css');
+@import url('../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');
+
+
+#fondo {
+  background-color: #E9EAEC;
+  background-image: url("../dist/img/seigaiha.png");
+}
