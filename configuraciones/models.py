@@ -39,8 +39,6 @@ class SistemaAparatoBiologico(models.Model):
 		verbose_name_plural = "Sistema o Aparato Biologico"
 	
 
-	
-
 class PatologiasGenerales(models.Model):
 	'''Modelo que sirve para almacenar todos los tipos de
 	enfermedades comunes que presentan los pacientes
@@ -57,7 +55,6 @@ class PatologiasGenerales(models.Model):
 
 	def __str__(self):
 		return self.nombre_patologico
-
 
 	class Meta:
 		ordering = ['nombre_patologico']
