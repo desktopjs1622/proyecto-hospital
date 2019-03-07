@@ -6,8 +6,8 @@
     {{ super() }}
 {% endblock stylesheets %}
 
+{% block contenido %}
 <div class="content-wrapper"><!-- comienzo del contenedor principal -->
-{% block sub_banner %}
     <section class="content-header">
     <h1>
         {{ titulo }}
@@ -18,8 +18,6 @@
         <li class="active">Listado General</li>
     </ol>
     </section>
-{% endblock sub_banner %}
-{% block contenido %}
             <!-- Main content -->
         <section class="content">
             <div class="row">

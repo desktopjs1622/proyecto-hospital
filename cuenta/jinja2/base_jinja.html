@@ -79,8 +79,8 @@
 
   <!-- Contenedor principal mejor dicho es donde se colocar el texto
   tablas y formularios -->
+  {% block contenido %}
   <div id="fondo" class="content-wrapper">
-    {% block sub_banner %}
     <section class="content-header">
       <h1>
         Dashboard
@@ -91,16 +91,12 @@
         <li class="active">Dashboard</li>
       </ol>
     </section>
-
-    {% endblock sub_banner %}
-
-    {% block contenido %}
     <section class="content">
       
      
     </section>
-    {% endblock contenido %}
   </div>
+  {% endblock contenido %}
   <!-- Aqui Finaliza el Contenedor principal
   donde se colocara el texto, tablas 
   y formularios -->
@@ -121,10 +117,7 @@
 <script src="{{ static('librerias/jquery/dist/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ static('librerias/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- Material Design -->
