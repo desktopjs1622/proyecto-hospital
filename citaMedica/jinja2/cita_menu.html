@@ -1,0 +1,12 @@
+<li class="treeview {% if 'cita/' in request.path %}active{% endif %}"><!--atributo de la clase "active"-->
+    <a href="#">
+        <i class="fa fa-book"></i> <span>Cita Médica</span>
+        <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <!--<li class="{% if 'historia/listado_de_historia' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:lista-historia') }}"><i class="fa fa-list-ol"></i> Listado de Historias</a></li>
+        <li class="{% if 'historia/registro_de_historia' in request.path %}active{% endif %}"><a href="{{ url('historiaMedica:registro-historia') }}"><i class="fa fa-address-book-o"></i> Registro de Historia Médica</a></li>!-->
+    </ul>
+</li>

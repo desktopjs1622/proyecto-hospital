@@ -1,0 +1,11 @@
+<li class="treeview {% if 'paciente/' in request.path %}active{% endif %}"><!--atributo de la clase "active"-->
+    <a href="#">
+      <i class="fa fa-group"></i> <span>Pacientes</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{% if 'paciente/listado' in request.path %}active{% endif %}"><a href="{{ url('paciente:lista-paciente') }}"><i class="fa fa-list-ol"></i> Listado de Paciente</a></li>
+    </ul>
+  </li>

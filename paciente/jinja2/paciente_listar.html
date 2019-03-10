@@ -26,8 +26,8 @@
             <small>Pacientes</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Historia Médica</a></li>
-            <li class="active">Listado General</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Listado General</a></li>
+            <li class="active">Pacientes</li>
         </ol>
         </section>
 
@@ -53,7 +53,7 @@
                 <div class="box box-info">
                     <div class="box-header">
                         Localidad IEU
-                        <a href="" data-toggle="tooltip" title="Agregar IEU" class="btn btn-success btn-xs pull-right"><span class="fa fa-fw fa-plus-circle"></span></a>
+                        <a href="{{ url('paciente:registro-paciente') }}" data-toggle="tooltip" title="Agregar" class="btn btn-success btn-xs pull-right"><span class="fa fa-fw fa-plus-circle"></span></a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -87,11 +87,11 @@
                                         <td class="text-left"></td>
                                         <td class="text-left"><a href=""></a></td>
                                         <td class="text-center"><span class="mytex btn-xs color-palette"></span></td>
-                                        <td class="text-center"><a href="">Ver Carreras</a></td>
+                                        <td class="text-center"><a href=""></a></td>
                                         <td class="text-center">
-                                            <button onclick="return abrir_modal()" data-toggle="tooltip" title="Ver este Sub Tipo de IEU" type="button" class="btn btn-default btn-xs"><span class="fa fa-eye"></span></button>
-                                            <a data-toggle="tooltip" title="Editar este Sub Tipo de IEU" href="" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a>
-                                            <button onclick="return abrir_modal()" data-toggle="tooltip" title="Eliminar este Sub Tipo de IEU" type="button" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></button>
+                                            <button onclick="return abrir_modal('{{ request.path }}detalle')" data-toggle="tooltip" title="Ver" type="button" class="btn btn-default btn-xs"><span class="fa fa-eye"></span></button>
+                                            <a data-toggle="tooltip" title="Editar" href="{{ url('paciente:editar-paciente') }}" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a>
+                                            <button onclick="return abrir_modal('{{ request.path }}eliminar')" data-toggle="tooltip" title="Eliminar" type="button" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></button>
                                         </td>
                                     </tr>
                                 
@@ -127,6 +127,12 @@
      <script src="{{ static('librerias/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
      <!-- page script -->
      <script>
+         function abrir_modal(url) {
+            $('#popup').load(url, function () {
+                $(this).modal('show');
+            });
+            return false;
+        }
  
          $(document).ready(function() {
              var table = $('#example').DataTable({
