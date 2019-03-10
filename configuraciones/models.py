@@ -61,3 +61,76 @@ class PatologiasGenerales(models.Model):
 		db_table = 'configuracion\".\"listado_general_patologico'
 		verbose_name = "Patologia"
 		verbose_name_plural = "Patologias o Enfermedades"
+
+
+class Pais(models.Model):
+	nombre_pais = models.CharField(max_length=60)
+
+	def __str__(self):
+		return self.nombre_pais
+	
+	class Meta:
+		ordering = ['nombre_pais']
+		db_table = 'configuracion\".\"pais_nacion'
+		verbose_name = 'Pais Nacion'
+		verbose_name_plural = 'Nacionalidad'
+
+
+class Estado(models.Model):
+	pais = models.ForeignKey(
+		'Pais', on_delete=models.PROTECT, db_index=True)
+	nombre_estado = models.CharField(max_length=150)
+
+	def __str__(self):
+		return self.nombre_estado
+	
+	class Meta:
+		ordering = ['nombre_estado']
+		db_table = 'configuracion\".\"estado_nacion'
+		verbose_name = 'Estado'
+		verbose_name_plural = 'Estados de la Nacion'
+
+
+class Municipio(models.Model):
+	estado = models.ForeignKey(
+		'Estado', on_delete=models.PROTECT, db_index=True)
+	nombre_municipio = models.CharField(max_length=255)
+
+	def __str__(self):
+		return self.nombre_municipio
+	
+	class Meta:
+		ordering = ['nombre_municipio']
+		db_table = 'configuracion\".\"municipio_nacion'
+		verbose_name = 'Municipio'
+		verbose_name_plural = 'Municipios de la Nacion'
+
+
+class Parroquia(models.Model):
+	municipio = models.ForeignKey(
+		'Municipio', on_delete=models.PROTECT, db_index=True)
+	nombre_parroquia = models.CharField(max_length=255)
+
+	def __str__(self):
+		return self.nombre_parroquia
+
+	class Meta:
+		ordering = ['nombre_parroquia']
+		db_table = 'configuracion\".\"parroquia_nacion'
+		verbose_name = 'Parroquia'
+		verbose_name_plural = 'Parroquias de la Nacion'
+
+
+class Ciudad(models.Model):
+	municipio = models.ForeignKey(
+		'Municipio', on_delete=models.PROTECT, db_index=True)
+	nombre_ciudad = models.CharField(max_length=255)
+
+	def __str__(self):
+		return self.nombre_ciudad
+	
+	class Meta:
+		ordering = ['nombre_ciudad']
+		db_table = 'configuracion\".\"ciudad_nacion'
+		verbose_name = 'Ciudad'
+		verbose_name_plural = 'Ciudades de la Nacion'
