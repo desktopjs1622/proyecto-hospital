@@ -5,7 +5,8 @@ la apps y se menciona de donde se esta llamando
 dicho modelo
 '''
 from configuraciones.models import (
-    PreguntaSecreta, SistemaAparatoBiologico, PatologiasGenerales)
+    PreguntaSecreta, SistemaAparatoBiologico, PatologiasGenerales,
+    Pais, Estado, Municipio, Parroquia, Ciudad)
 
 '''Para que el administrador de Django muestre el
 modelo creado se llamara de la siguiente manera
@@ -26,3 +27,11 @@ patologias o enfermedades que se tienen como cono
 cimientos y las nuevas enfermedades
 '''
 admin.site.register(PatologiasGenerales)
+
+'''Division Politico Territorial
+'''
+admin.site.register(Pais)
+admin.site.register(Estado)
+admin.site.register(Municipio)
+admin.site.register(Parroquia)
+admin.site.register(Ciudad)

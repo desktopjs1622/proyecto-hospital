@@ -1,9 +1,38 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from paciente.views import ListadoPaciente, RegistroPaciente
+from paciente.views import (
+    ListadoPaciente, RegistroPaciente, PaisAutoComplete, EstadoAutoComplete,
+    MunicipioAutoComplete, CiudadAutoComplete, ParroquiaAutoComplete)
 
 app_name = 'paciente'
 urlpatterns = [
+    # #################### Servicios de auto completado #################### #
+    path(
+        'pais/', 
+        PaisAutoComplete.as_view(), 
+        name='pais'
+    ),
+    path(
+        'estado/',
+        EstadoAutoComplete.as_view(),
+        name='estado'
+    ),
+    path(
+        'municipio/',
+        MunicipioAutoComplete.as_view(),
+        name='municipio'
+    ),
+    path(
+        'ciudad/',
+        CiudadAutoComplete.as_view(),
+        name='ciudad'
+    ),
+    path(
+        'parroquia/',
+        ParroquiaAutoComplete.as_view(),
+        name='parroquia'
+    ),
+    # ################ rutas para los template paciente #################### #
     path( #listar
         'listado/', 
         ListadoPaciente.as_view(
