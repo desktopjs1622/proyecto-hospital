@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path, reverse_lazy
 from django.views.generic import TemplateView
+from paciente.models import RegistroPaciente
+from paciente.forms import RegistroPacienteForm
 from paciente.views import (
-    ListadoPaciente, RegistroPaciente, PaisAutoComplete, EstadoAutoComplete,
+    ListadoPaciente, RegistroPacienteView, PaisAutoComplete, EstadoAutoComplete,
     MunicipioAutoComplete, CiudadAutoComplete, ParroquiaAutoComplete)
 
 app_name = 'paciente'
@@ -59,19 +61,15 @@ urlpatterns = [
     ),
     path( #agregar
         'registro/agregar',
-        RegistroPaciente.as_view(
+        RegistroPacienteView.as_view(
+            model=RegistroPaciente,
+            form_class=RegistroPacienteForm,
             template_name='paciente_formulario.html',
             extra_context={'titulo': 'Registro', 'title': 'Registro de Paciente'},
+            success_url=reverse_lazy('paciente:lista-paciente'),
+            success_message='Paciente Nuevo, Registro Éxitoso'
         ), 
         name='registro-paciente'
-    ),
-    path( #agregar
-        'registro/editar',
-        RegistroPaciente.as_view(
-            template_name='paciente_formulario.html',
-            extra_context={'titulo': 'Registro', 'title': 'Registro de Paciente'},
-        ), 
-        name='editar-paciente'
     ),
     
 ]
