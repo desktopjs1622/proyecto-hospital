@@ -4,27 +4,20 @@
 
 {% block estilos %}
     {{ super() }}
-{% endblock estilos %}
-
+{% endblock stylesheets %}
 {% block contenido %}
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                IEU:
-                <small>{%if agregar %}Agregar{% else %}Editar{% endif %} Tipo Específico de Institución de Educación Universitaria</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Resumen LOEU</a></li>
-                <li><a href="">Tipo IEU</a></li>
-                <li><a href=""> Sub Tipo IEU</a></li>
-                <li><a href=""> Tipo Específico IEU</a></li>
-                <li class="active">{%if agregar %}Agregar{% else %}Editar{% endif %}</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
+<div class="content-wrapper"><!-- comienzo del contenedor principal -->
+    <section class="content-header">
+    <h1>
+        {{ titulo }}
+        <small>Pacientes</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Historia Médica</a></li>
+        <li class="active">Listado General</li>
+    </ol>
+    </section>
+            <!-- Main content -->
         <section class="content">
 
             <div class="row">

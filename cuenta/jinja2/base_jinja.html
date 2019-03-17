@@ -9,10 +9,13 @@
   {% block icons_title %}
   <link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />
   {% endblock icons_title %}
-  {% block estilos %}
-    <!-- Enlace para llamar todos los estilos y librerias CSS !-->
+  {% block stylesheets %}
+  <!--===============================================================================================-->
+  <!--===============================================================================================-->
   <link rel="stylesheet" href="{{ static('css/style.css') }}">
-    <!-- Google Font -->
+  <!--===============================================================================================-->
+  <!--===============================================================================================-->
+  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   {% endblock estilos %}
 </head>
@@ -20,12 +23,11 @@
 <div class="wrapper">
   {% block navegacion %}
   <header class="main-header">
-    <!-- Logo -->
     <a class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">H<b>M</b>J</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">Hosp.<b>Municipal</b>Junquito</span>
+      <span class="logo-lg">Hospital <b>El Junquito</b> </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -77,10 +79,9 @@
     {% include "cuenta_menu.html" %}
   {% endblock menu %}
 
-  <!-- Contenedor principal mejor dicho es donde se colocar el texto
-  tablas y formularios -->
   {% block contenido %}
-  <div id="fondo" class="content-wrapper">
+  <div class="content-wrapper">
+  <!-- Desde aqui va el contenido para mostrarse en la plantilla -->
     <section class="content-header">
       <h1>
         Dashboard
@@ -91,38 +92,108 @@
         <li class="active">Dashboard</li>
       </ol>
     </section>
-    <section class="content">
-      
-     
-    </section>
-  </div>
+       <!-- Main content -->
+       <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Hover Data Table</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 4.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td> 4</td>
+                      <td>X</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
+                    </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
   {% endblock contenido %}
-  <!-- Aqui Finaliza el Contenedor principal
-  donde se colocara el texto, tablas 
-  y formularios -->
-
   {% block footer %}
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer id="footer" class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+    <b>Sistema</b>  {{ settings.NOMBRE_APP }} {{ settings.NAME_HOSP }} <b>Version</b> 2.4.0
     </div>
     <strong>Desarrollado por {{ settings.DESARROLLADO_POR }} | Copyright &copy; 2017-2019 </strong> All rights
     reserved.
   </footer>
   {% endblock footer %}
-
-{% block javascripts %}
+  {% block javascripts %}
+<!--PACE css -->
+<script src="{{ static('librerias/PACE/pace.min.js')}}"></script>
 <!-- jQuery 3 -->
 <script src="{{ static('librerias/jquery/dist/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ static('librerias/jquery-ui/jquery-ui.min.js') }}"></script>
-
+<script src="{{ static('librerias/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ static('librerias/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{ static('librerias/select2/dist/js/select2.full.min.js') }}"></script>
+<!-- iCheck 1.0.1 -->
+<script src="{{ static('plugins/iCheck/icheck.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ static('librerias/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ static('dist/js/adminlte.min.js') }}"></script>
-  <script src="{{ static('librerias/PACE/pace.min.js') }}"></script>
+<script src="{{ static('dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ static('dist/js/pages/dashboard.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ static('dist/js/demo.js')}}"></script>
+<script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
 {% endblock javascripts %}
 </body>
 </html>

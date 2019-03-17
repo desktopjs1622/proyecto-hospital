@@ -1,17 +1,17 @@
-@import url('../librerias/PACE/themes/blue/pace-theme-loading-bar.css');
+/* PACE css */
+@import url('../librerias/PACE/themes/black/pace-theme-loading-bar.css');
+/* Bootstrap 3.3.7 */
 @import url('../librerias/bootstrap/dist/css/bootstrap.min.css');
-@import url('../librerias/font-awesome/css/font-awesome.min.css');
+/* Font Awesome 4.7.0 */
+@import url('../librerias/font-awesome-4.7.0/css/font-awesome.min.css');
+/*Ionicons */
 @import url('../librerias/Ionicons/css/ionicons.min.css');
+/* Select2 */
+@import url('../librerias/select2/dist/css/select2.min.css');
+/* Theme style */
 @import url('../dist/css/AdminLTE.min.css');
-@import url('../dist/css/skins/all-md-skins.min.css');
+/* AdminLTE Skins Choose a skin from the css/skins
+folder instead of downloading all of them to reduce the load */
+@import url('../dist/css/skins/_all-skins.min.css');
+/* Morris chart */
 @import url('../librerias/morris.js/morris.css');
-@import url('../librerias/jvectormap/jquery-jvectormap.css');
-@import url('../librerias/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
-@import url('../librerias/bootstrap-daterangepicker/daterangepicker.css');
-@import url('../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');
-
-
-#fondo {
-  background-color: #E9EAEC;
-  background-image: url("../dist/img/seigaiha.png");
-}
