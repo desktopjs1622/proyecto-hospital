@@ -2,19 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>.:: {{ settings.NOMBRE_APP }} | {% block title %} Login {% endblock title %} ::.</title>
     {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
     {% block materialize %}
-    <link rel="stylesheet" href="{{ static('librerias/materialize/css/materialize.min.css')}}">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="{{ static('css/estilo.css') }}">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--===============================================================================================-->
+    
     {% endblock materialize %}
 </head>
 <body>
-    {% block contents %}
     <center>
-        <img src="{{ static('dist/img/banner2.png') }}" class="img-responsive" alt="" style="display:flex; margin:0 auto;">
+        <img id="banner" src="{{ static('dist/img/banner2.png') }}" class="img-responsive" alt="">
     </center>
 <div class="section"></div>
 <main>
@@ -24,8 +29,9 @@
     <h6 class="saludologin">Del Hospital Municipal "El Junquito"</h6>
     <div class="section"></div>
     <div class="container">
-        <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div id="caja-principal" class="z-depth-1 grey lighten-4 col s4">
             <div id="loginMsg"></div>
+            {% block contents %}
             <form action="" class="col s12 m12 l12" autocomplete="off">
                 <img src="{{ static ('dist/img/mujer.svg') }}" class="loginimg"></img><img src="{{ static('dist/img/hombre.svg') }}" class="loginimg"></img>
                 <div class="input-field col s11 m11 l11">
@@ -33,34 +39,133 @@
                     <label id="flemail" for='email'>Escriba su Email</label>
                 </div>
                 <div class="input-field col s11 m11 l11">
-                    <input class='validate' type='password' name='password' id='passLogin' onpaste="return false" />
+                    <input class='validate' type='password' name='password' id='passLogin' onpaste="return false" autocomplete="new-password" />
                     <label for='password'>Escriba su Contraseña</label>
                 </div>
                 <center>
                 <div class='row'>
                     <div class="col s12 m12 l12">
                     <input type="hidden" name="ajax">
-                    <button type='submit' id='btnLoginAcc' class='btn btn-medium waves-effect indigo' onclick="">Ingresar</button>
+                    <button type='submit' id='btnLoginAcc' class="waves-effect waves-light btn" id="loginbtn" title="Ingresar" onclick="">Ingresar
+                        <i class="material-icons right">send</i>
+                    </button>
                     </div>
                 </div>
                 </center>
             </form>
+            {% endblock contents %}
         </div>
+        {% block modal %}
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="container">
+                        <h6 class="saludologin">Registro Nuevos Usuarios</h6>
+                         <div id="cuadro-modal" class="z-depth-1 grey lighten-4 col s4">
+                            <img src="{{ static ('dist/img/usuarios.svg') }}" class="loginimg">
+                                <div class="row">
+                                <form action="" autocomplete="off">
+                                    <div class="input-field col s12 l6">
+                                        <input type="text" id="first_name" class="validate">
+                                        <label for="first_name">Primer Nombre</label>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <input type="text" id="last_name" class="validate">
+                                        <label for="last_name">Primer Apellido</label>
+                                    </div>
+                                    <div class="input-field col s12 l4">
+                                        <input type="text" id="user" class="validate">
+                                        <label for="user" data-error="wrong" data-success="right">Usuario</label>
+                                    </div>
+                                    <div class="input-field col s12 l8">
+                                        <input type="email" id="email" class="validate">
+                                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <input type="password" id="password" class="validate" autocomplete="new-password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <input type="password" id="repit_password" class="validate" autocomplete="new-password">
+                                        <label for="repit_password">Repetir password</label>
+                                    </div>
+                                    <div id="secreta" class="input-field col s12 l6">
+                                    <select>
+                                          <option value="" disabled selected>Seleccione</option>
+                                          <option value="1">Color Favorito</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                    </select>
+                                    <label for="secreta" >Pregunta Secreta</label>
+                                  </div>
+                                  <div class="input-field col s12 l6">
+                                        <input type="text" id="respuesta" class="validate">
+                                        <label for="respuesta">Respuesta</label>
+                                    </div>
+                                </form> 
+                            </div>
+                            <div class="row">
+                                <button class="btn waves-effect waves-light floating pulse" type="submit" name="action">Registrar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <button class="modal-close waves-effect red darken-4 btn"><i class="material-icons right">close</i>Cerrar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <div class="container">
+                    <h6 class="saludologin">Recuperar Cuenta</h6>
+                         <div id="cuadro2-modal" class="z-depth-1 grey lighten-4 col s4">
+                            <img src="{{ static ('dist/img/usuario.svg') }}" class="loginimg">
+                            <div class="row">
+                                <form action="">
+                                    <div class="input-field col s12 l12">
+                                        <input type="email" id="email" class="validate" autocomplete="off">
+                                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                                    </div>
+                                </form> 
+                            </div>
+                            <div class="row">
+                                <button class="btn waves-effect waves-light floating pulse" type="submit" name="action">Recuperar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <button class="modal-close waves-effect red darken-4 btn"><i class="material-icons right">close</i>Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock modal %}
         <br><br>
+        {% block enlaces %}
         <div class="container">
             <div class="row">
-                <a class='saludologin' href="{{ url('cuenta:registro-de-usuario') }}"><b>Registrate!</b></a> 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class='saludologin' href="{{ url('cuenta:recuperar-cuenta') }}"><b>¡Recuperar Contraseña!</b></a>
+                <a class="waves-effect  teal darken-4 btn-small btn modal-trigger" href="#modal1">Nuevo Registro</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;       
+                <!-- Modal Trigger -->
+                <a class="waves-effect teal darken-4 btn-small btn modal-trigger" href="#modal2">Recuperar Cuenta</a>
             </div>
         </div>
+        {% endblock enlaces %}
        </div>
     </div>
     </center>
 </main>
-{% endblock contents %}
    {% block java %}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="{{ static('librerias/materialize/js/materialize.min.js') }}"></script>
+   <script src="{{ static('librerias/PACE/pace.min.js') }}"></script>
+  <script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+   $(document).ready(function(){
+    $('select').formSelect();
+  });
+  </script>
    {% endblock java %}
 </body>
 </html>

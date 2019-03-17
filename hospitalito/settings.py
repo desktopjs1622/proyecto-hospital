@@ -85,10 +85,12 @@ TEMPLATES = [
 ]
 
 NOMBRE_APP = 'Hospital'
+NAME_HOSP = 'Municipal El Junquito'
 DESARROLLADO_POR = 'Cristofer Urbina'
 
 SETTINGS_EXPORT = [
     'NOMBRE_APP',
+    'NAME_HOSP',
     'DESARROLLADO_POR'
 ]
 
