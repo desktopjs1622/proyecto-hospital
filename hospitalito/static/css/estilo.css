@@ -1,5 +1,6 @@
 @import url('../librerias/materialize/css/materialize.min.css');
 @import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
+@import url('../librerias/MaterialDark/css/material-design-iconic-font.min.css');
 
 body {
 	background-color: #E9EAEC;
