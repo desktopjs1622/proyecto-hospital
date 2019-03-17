@@ -8,9 +8,6 @@
 @import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
 @import url('../librerias/MaterialDark/css/material-design-iconic-font.min.css');
 
-head #modal2 {
-	max-height: 100%; overflow: visible
-}
 /*Imagen de fondo en la pantalla principal */
 >>>>>>> 9e5448757230cf76e46443b0e307668c048b0343
 body{
