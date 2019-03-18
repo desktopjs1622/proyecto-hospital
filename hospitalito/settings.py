@@ -148,3 +148,30 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'hospitalito/static/',
 ]
+
+SUIT_CONFIG = {
+    # header
+    'ADMIN_NAME': 'hospitalito',
+    'HEADER_DATE_FORMAT': 'l, j. F Y',
+    'HEADER_TIME_FORMAT': 'H:i',
+
+    # forms
+    'SHOW_REQUIRED_ASTERISK': True,  # Default True
+
+    'MENU': (
+        {
+            'label': 'Personas y Grupos',
+            'icon': 'icon-user',
+            'models': (
+                'cuenta.Persona',
+                'auth.group',
+                'admin.LogEntry'
+            )
+        },
+
+        # {'app': 'sismeu', 'label': 'Sismeu', 'icon':'icon-map-marker'},   
+    ),
+
+    # misc
+    'LIST_PER_PAGE': 15
+}
