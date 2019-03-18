@@ -8,20 +8,18 @@
     {% block icon_title %}<link rel="shortcut icon" href="{{ static('dist/img/avatar.png')}}" />{% endblock icon_title %}
     {% block materialize %}
     <!--===============================================================================================-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--===============================================================================================-->
     <!--===============================================================================================-->
     <link rel="stylesheet" href="{{ static('css/estilo.css') }}">
     <!--===============================================================================================-->
-    <style>
-        #modal1 { max-height: 100%; overflow: visible}
-        #modal2 { max-height: 100%; overflow: visible}
-    </style>
+    <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--===============================================================================================-->
+    
     {% endblock materialize %}
 </head>
 <body>
     <center>
-        <img src="{{ static('dist/img/banner2.png') }}" class="img-responsive" alt="" style="display:flex; margin:0 auto;">
+        <img id="banner" src="{{ static('dist/img/banner2.png') }}" class="img-responsive" alt="">
     </center>
 <div class="section"></div>
 <main>
@@ -31,7 +29,7 @@
     <h6 class="saludologin">Del Hospital Municipal "El Junquito"</h6>
     <div class="section"></div>
     <div class="container">
-        <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div id="caja-principal" class="z-depth-1 grey lighten-4 col s4">
             <div id="loginMsg"></div>
             {% block contents %}
             <form action="" class="col s12 m12 l12" autocomplete="off">
@@ -59,10 +57,10 @@
         </div>
         {% block modal %}
             <div id="modal1" class="modal">
-                <div class="modal-content" style="background-image: url({{ static('dist/img/seigaiha.png') }});">
+                <div class="modal-content">
                     <div class="container">
                         <h6 class="saludologin">Registro Nuevos Usuarios</h6>
-                         <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+                         <div id="cuadro-modal" class="z-depth-1 grey lighten-4 col s4">
                             <img src="{{ static ('dist/img/usuarios.svg') }}" class="loginimg">
                                 <div class="row">
                                 <form action="" autocomplete="off">
@@ -117,10 +115,10 @@
                 </div>
             </div>
             <div id="modal2" class="modal">
-                <div class="modal-content" style="background-image: url({{ static('dist/img/seigaiha.png') }});">
+                <div class="modal-content">
                     <div class="container">
                     <h6 class="saludologin">Recuperar Cuenta</h6>
-                         <div class="z-depth-1 grey lighten-4 col s4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+                         <div id="cuadro2-modal" class="z-depth-1 grey lighten-4 col s4">
                             <img src="{{ static ('dist/img/usuario.svg') }}" class="loginimg">
                             <div class="row">
                                 <form action="">

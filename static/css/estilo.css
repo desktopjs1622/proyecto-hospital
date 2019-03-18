@@ -1,26 +1,68 @@
-@import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
 @import url('../librerias/materialize/css/materialize.min.css');
-@import url('../librerias/iconic/css/material-design-iconic-font.min.css');
+@import url('../librerias/PACE/themes/blue/pace-theme-minimal.css');
+@import url('../librerias/MaterialDark/css/material-design-iconic-font.min.css');
 
+/*Imagen de fondo en la pantalla principal */
 body{
 	background-color: #E9EAEC;
 	background-image: url("../dist/img/seigaiha.png");
 }
+
+body #banner {
+	display:flex; margin:0 auto;
+}
+
 main {
 	flex: 1 0 auto;
 }
+
 section{
 	margin-left:115px;
 	margin-top:35px;
 }
+
 .loginimg{
 	width:100px;
 }
+
 .saludologin{
 	color:#388E3C;
 }
-#loginbtn{
-	float: right;
-	margin-bottom: 10px;
-	margin-right: 10px;
+
+/*Estilo para el formulario de inicio de sesión
+en el template login.html*/
+#caja-principal {
+	display: inline-block; 
+	padding: 32px 48px 0px 48px; 
+	border-radius: 1px solid #EEE;
+}
+
+/*Estilos para el modal #1 */
+#modal1 {
+	max-height: 100%; overflow: visible
+}
+
+#modal1 .modal-content {
+	background-image: url("../dist/img/seigaiha.png");
+}
+
+#modal1 .modal-content #cuadro-modal {
+	display: inline-block; 
+	padding: 32px 48px 0px 48px; 
+	border-radius: 1px solid #EEE;
+}
+
+/*Estilos para el modal #2 */
+#modal2 {
+	max-height: 100%; overflow: visible
+}
+
+#modal2 .modal-content {
+	background-image: url("../dist/img/seigaiha.png")
+}
+
+#modal2 .modal-content #cuadro2-modal {
+	display: inline-block; 
+	padding: 32px 48px 0px 48px; 
+	border-radius: 1px solid #EEE;
 }
