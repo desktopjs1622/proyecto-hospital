@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'historiaMedica',
     'citaMedica',
     'paciente',
+    'configuraciones',
+    'dal',
+    'dal_select2',
 ]
 
 MIDDLEWARE = [
