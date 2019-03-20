@@ -65,3 +65,4 @@ class RegistroPacienteForm(ModelForm):
                 url='paciente:CiudadAutoComplete',
                 attrs={'class':'form-control select2'}),
         }
+        hola a todos
