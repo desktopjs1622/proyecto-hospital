@@ -2,15 +2,9 @@ from django.urls import path, reverse_lazy
 from django.views.generic import TemplateView
 from paciente.models import RegistroPaciente
 from paciente.forms import RegistroPacienteForm
-<<<<<<< HEAD
-from paciente.views import (
-    ListadoPaciente, RegistroPacienteView, PaisAutoComplete, EstadoAutoComplete,
-    MunicipioAutoComplete, CiudadAutoComplete, ParroquiaAutoComplete)
-=======
 from configuraciones.views import (PaisAutoComplete, EstadoAutoComplete,
     MunicipioAutoComplete, CiudadAutoComplete, ParroquiaAutoComplete)
 from paciente.views import (ListadoPaciente, RegistroPacienteView)
->>>>>>> 0b1adcec9448a48e3d4d0d9a5009a2bfef56b9a1
 
 app_name = 'paciente'
 urlpatterns = [
