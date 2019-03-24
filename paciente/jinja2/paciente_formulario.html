@@ -43,15 +43,22 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Nombre</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="" id="" placeholder='Escriba su primer nombre'/>
+                                {% for field in form %}
+                                    <div class="form-group">
+                                        <label for="{{ field.id_for_label }}" class="col-sm-3 control-label">{{ field.label }}</label>
+                                        <div class="col-sm-9">
+                                            {{ field }}
                                         </div>
-                                        {% if not agregar %}<div class="col-sm-2"><img class="img-responsive" src="" alt=""></div>{% endif %}
+                                        <span class="help-block">
+                                            {% for error in field.errors %}
+                                                <ul>
+                                                    <li class="text-red">{{ error }}</li>
+                                                </ul>
+                                            {% endfor %}
+                                        </span>
                                     </div>
-                        </div>
-                            <!-- /.box-body -->
+                            {% endfor %}
+                            </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary pull-right">{%if agregar %}Agregar{% else %}Editar{% endif %}</button>
                             </div>

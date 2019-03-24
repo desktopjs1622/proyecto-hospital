@@ -11,7 +11,7 @@ DATABASES = {
             'options': '-c search_path=public'
         },
         'HOST': 'localhost',
-        'NAME': 'Hospital',
+        'NAME': 'hospitalito',
         'PASSWORD': 'urbina29$',
         'PORT': '5432',
         'USER':'postgres'
