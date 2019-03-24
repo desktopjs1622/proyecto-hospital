@@ -53,43 +53,23 @@
                             </div>
 
                             <!-- /.box-header -->
-                            <!--<div class="box-body">
-                                <div class="form-group">
-                                    <label for="" class="col-sm-3 control-label">Prioritaria</label>
-                                    <div class="col-sm-9">
-                                        <div class="input-group">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="" id="" value="True" {% if activo == True%} checked{% endif %}>
-                                                    Activo
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="" id="" value="False" {% if activo == False %} checked{% endif %}>
-                                                    Inactivo
-                                                </label>
-                                            </div>
+                            <div class="box-body">
+                                {% for field in form %}
+                                    <div class="form-group">
+                                        <label for="{{ field.id_for_label }}" class="col-sm-3 control-label">{{ field.label }}</label>
+                                        <div class="col-sm-9">
+                                            {{ field }}
                                         </div>
                                         <span class="help-block">
-                                            
+                                            {% for error in field.errors %}
                                                 <ul>
-                                                    <li class="text-red"></li>
+                                                    <li class="text-red">{{ error }}</li>
                                                 </ul>
-
+                                            {% endfor %}
                                         </span>
                                     </div>
-                                </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Revisor(es)</label>
-                                        <div class="col-sm-9"><br>
-                                            
-                                                    <small class="label {{ color }}">{{ revisor }}</small>
-                                               
-                                        </div>
-                                    </div>
-                                
-                            </div>!-->
+                            {% endfor %}
+                            </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary pull-right">{%if agregar %}Agregar{% else %}Editar{% endif %}</button>
                             </div>

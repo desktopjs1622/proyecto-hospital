@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from configuraciones.models import (
     SistemaAparatoBiologico, PatologiasGenerales)
+from configuraciones.models import Pais, Estado, Municipio, Ciudad, Parroquia
 # Librerias de terceros
 from dal import autocomplete
 
@@ -39,4 +40,89 @@ class PatologiaAutoComplete(autocomplete.Select2QuerySetView):
 
         return queryset
 
-    ##############################################################################
+
+##############################################################################
+#########           Clase del autocomplete de la División           ##########
+#########                   politico territorial                    ##########
+##############################################################################
+class PaisAutoComplete(autocomplete.Select2QuerySetView):
+    """AutoComplete para listar Pais
+    """
+    def get_queryset(self):
+        queryset = Pais.objects.all()
+
+        if self.q:
+            queryset = queryset.filter(nombre_pais__icontains=self.q)
+        return queryset
+
+
+class EstadoAutoComplete(autocomplete.Select2QuerySetView):
+    """AutoComplete para listar los estados asociados al pais
+    de seleccion y tambien para poder filtarlos
+    """
+
+    def get_queryset(self):
+        nombre_pais = self.forwarded.get('nombre_pais', None)
+
+        queryset = Estado.objects.all()
+
+        if nombre_pais:
+            queryset = queryset.filter(nombre_pais_id=nombre_pais)
+        
+        if self.q:
+            queryset = queryset.filter(nombre_estado__icontains=self.q)
+        
+        return queryset
+        
+class MunicipioAutoComplete(autocomplete.Select2QuerySetView):
+    """AutoComplete para listar los municipios asociados
+    a los estados
+    """
+    def get_queryset(self):
+        nombre_estado = self.forwarded.get('nombre_estado', None)
+
+        queryset = Municipio.objects.all()
+
+        if nombre_estado:
+            queryset = queryset.filter(nombre_estado_id=nombre_estado)
+        
+        if self.q:
+            queryset = queryset.filter(nombre_municipio__icontains=self.q)
+        
+        return queryset
+
+class CiudadAutoComplete(autocomplete.Select2QuerySetView):
+    """AutoComplete para listar las ciudades pertenecientes
+    a los municipios
+    """
+    def get_queryset(self):
+        nombre_municipio = self.forwarded.get('nombre_municipio', None)
+
+        queryset = Ciudad.objects.all()
+
+        if nombre_municipio:
+            queryset = queryset.filter(nombre_municipio_id=nombre_municipio)
+        
+        if self.q:
+            queryset = queryset.filter(nombre_ciudad__icontains=self.q)
+        
+        return queryset
+
+class ParroquiaAutoComplete(autocomplete.Select2QuerySetView):
+    """AutoComplete para listar las parroquias pertenecientes
+    a los municipios
+    """
+
+    def get_queryset(self):
+        nombre_municipio = self.forwarded.get('nombre_municipio', None)
+
+        queryset = Parroquia.objects.all()
+
+        if nombre_municipio:
+            queryset = queryset.filter(nombre_municipio_id=nombre_municipio)
+        
+        if self.q:
+            queryset = queryset.filter(nombre_parroquia__icontains=self.q)
+        
+        return queryset
+

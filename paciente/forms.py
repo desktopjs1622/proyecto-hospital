@@ -19,11 +19,11 @@ class RegistroPacienteForm(ModelForm):
             'letra_cedula_identidad',
             'cedula_identidad',
             'sexo',
-            'pais',
-            'estado',
-            'municipio',
-            'parroquia',
-            'ciudad',
+            'nombre_pais',
+            'nombre_estado',
+            'nombre_municipio',
+            'nombre_parroquia',
+            'nombre_ciudad',
         )
         labels = {
             'nombre': 'Primer Nombre',
@@ -34,11 +34,11 @@ class RegistroPacienteForm(ModelForm):
             'letra_cedula_identidad': 'Identidad',
             'cedula_identidad': 'Cédula Identidad',
             'sexo': 'Sexualidad',
-            'pais': 'Nacionalidad',
-            'estado': 'Estado-País',
-            'municipio': 'Municipio',
-            'parroquia': 'Parroquia',
-            'ciudad': 'Ciudad',
+            'nombre_pais': 'Nacionalidad',
+            'nombre_estado': 'Estado-País',
+            'nombre_municipio': 'Municipio',
+            'nombre_parroquia': 'Parroquia',
+            'nombre_ciudad': 'Ciudad',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
@@ -49,20 +49,19 @@ class RegistroPacienteForm(ModelForm):
             'letra_cedula_identidad': forms.Select(attrs={'class':'form-control'}),
             'cedula_identidad': forms.NumberInput(attrs={'class':'form-control'}),
             'sexo': forms.Select(attrs={'class':'form-control'}),
-            'pais': autocomplete.ModelSelect2(
-                url='paciente:PaisAutoComplete',
+            'nombre_pais': autocomplete.ModelSelect2(
+                url='configuraciones:PaisAutoComplete',
                 attrs={'class':'form-control select2'}),
-            'estado': autocomplete.ModelSelect2(
-                url='paciente:EstadoAutoComplete',
+            'nombre_estado': autocomplete.ModelSelect2(
+                url='configuraciones:EstadoAutoComplete',
                 attrs={'class':'form-control select2'}),
-            'municipio' :autocomplete.ModelSelect2(
-                url='paciente:MunicipioAutoComplete',
+            'nombre_municipio' :autocomplete.ModelSelect2(
+                url='configuraciones:MunicipioAutoComplete',
                 attrs={'class':'form-control select2'}),
-            'parroquia': autocomplete.ModelSelect2(
-                url='paciente:ParroquiaAutoComplete',
+            'nombre_parroquia': autocomplete.ModelSelect2(
+                url='configuraciones:ParroquiaAutoComplete',
                 attrs={'class':'form-control select2'}),
-            'ciudad': autocomplete.ModelSelect2(
-                url='paciente:CiudadAutoComplete',
+            'nombre_ciudad': autocomplete.ModelSelect2(
+                url='configuraciones:CiudadAutoComplete',
                 attrs={'class':'form-control select2'}),
         }
-        hola a todos
