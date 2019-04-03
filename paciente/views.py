@@ -18,27 +18,4 @@ laminada los candidatos estan entre los 9 años hasta
 los 110 años
 '''
 class RegistroPacienteView(SuccessMessageMixin, CreateView):
-
-    def get_context_data(self, **kwargs):
-        contexto = {}
-        contexto = super().get_context_data(**kwargs)
-        contexto['form'] = self.object
-        return contexto
-    
-    def post(self, request, *args, **kwargs):
-        self.object = None
-        form = self.get_form(self.form_class)
-        if (form.is_valid()):
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-    
-    def form_valid(self, form):
-
-        form = form.save()
-        
-        return HttpResponseRedirect(self.get_success_url())
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(
-            form=form))
+    pass

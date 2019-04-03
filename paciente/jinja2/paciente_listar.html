@@ -3,9 +3,9 @@
 {% block stylesheets %}
     {{ super() }}
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{ static('libreria/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ static('libreria/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ static('libreria/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('librerias/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('librerias/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ static('librerias/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}">
     <style>
         .mytex {
             min-width: 80px !important;
@@ -210,63 +210,7 @@
                 },
                 buttons: ['copy', 'csv', 'pdf']
             });
-            return false;
-        }
- 
-         $(document).ready(function() {
-             var table = $('#example').DataTable({
-                 lengthChange: true,
-                 columnDefs: [
-                     { "targets": [3, 4], "orderable": false },
-                     { "targets": [3, 4], "searchable": false },
-                 ],
-                 language: {
-                     lengthMenu: "_MENU_ registros por página",
-                     zeroRecords: "Lo sentimos, no encontramos registros coincidentes con su criterio de busqueda",
-                     info: "Mostrando la página _PAGE_ de _PAGES_",
-                     infoEmpty: "No hay registros de Tipos de IEU disponibles",
-                     infoFiltered: "(Filtrados de un total de _MAX_ registros)",
-                     search: "Buscar: ",
-                     paginate: {
-                         first: "Primero",
-                         last: "Último",
-                         next: "Siguiente",
-                         previous: "Previo"
-                     },
-                     buttons: {
-                         copy: "Copiar"
-                     },
-                     decimal: "-",
-                     thousands: "."
-                 },
-                 buttons: ['copy', 'csv', 'pdf']
-             });
- 
-             table.buttons().container()
-                 .appendTo('#example_wrapper .col-sm-6:eq(0)');
- 
- 
-             // Event listener to the two range filtering inputs to redraw on input
 
-<<<<<<< HEAD
- 
-             $('#column0_search').on( 'keyup', function () {
-                 table
-                     .columns( 0 )
-                     .search( this.value )
-                     .draw();
-             } );
- 
-             $('#column1_search').on( 'keyup', function () {
-                 table
-                     .columns( 1 )
-                     .search( this.value )
-                     .draw();
-             } );
-         });
- 
-     </script>
-=======
             table.buttons().container()
                 .appendTo('#example_wrapper .col-sm-6:eq(0)');
 
@@ -302,5 +246,4 @@
             } );
         });
     </script>
->>>>>>> 9e5448757230cf76e46443b0e307668c048b0343
 {% endblock javascripts %}

@@ -1,10 +1,7 @@
 from django.shortcuts import render
 from configuraciones.models import (
     SistemaAparatoBiologico, PatologiasGenerales)
-<<<<<<< HEAD
-=======
 from configuraciones.models import Pais, Estado, Municipio, Ciudad, Parroquia
->>>>>>> 0b1adcec9448a48e3d4d0d9a5009a2bfef56b9a1
 # Librerias de terceros
 from dal import autocomplete
 

@@ -49,7 +49,7 @@ class PatologiasGenerales(models.Model):
 	tabla padre
 	'''
 	aparato_biologico = models.ForeignKey(
-		'SistemaAparatoBiologico', on_delete=models.PROTECT, db_index=True)
+		'SistemaAparatoBiologico', on_delete=models.PROTECT)
 	nombre_patologico = models.CharField(max_length=150)
 
 
@@ -82,7 +82,7 @@ class Estado(models.Model):
 	'''Estado geografico que pertenece el paciente
 	'''
 	pais = models.ForeignKey(
-		'Pais', on_delete=models.PROTECT, db_index=True)
+		'Pais', on_delete=models.PROTECT)
 	nombre_estado = models.CharField(max_length=150)
 
 	def __str__(self):
@@ -99,7 +99,7 @@ class Municipio(models.Model):
 	'''a que municipio pertenece el paciente
 	'''
 	estado = models.ForeignKey(
-		'Estado', on_delete=models.PROTECT, db_index=True)
+		'Estado', on_delete=models.PROTECT)
 	nombre_municipio = models.CharField(max_length=255)
 
 	def __str__(self):
@@ -117,7 +117,7 @@ class Parroquia(models.Model):
 	donde vive el paciente
 	'''
 	municipio = models.ForeignKey(
-		'Municipio', on_delete=models.PROTECT, db_index=True)
+		'Municipio', on_delete=models.PROTECT)
 	nombre_parroquia = models.CharField(max_length=255)
 
 	def __str__(self):
@@ -134,7 +134,7 @@ class Ciudad(models.Model):
 	'''Donde habita la vivienda del paciente
 	'''
 	municipio = models.ForeignKey(
-		'Municipio', on_delete=models.PROTECT, db_index=True)
+		'Municipio', on_delete=models.PROTECT)
 	nombre_ciudad = models.CharField(max_length=255)
 
 	def __str__(self):

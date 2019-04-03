@@ -2,7 +2,7 @@
 
 {% block title %} {{ titulo }} {% endblock title %}
 
-{% block estilos %}
+{% block stylesheets %}
     {{ super() }}
 {% endblock stylesheets %}
 {% block contenido %}
@@ -19,45 +19,53 @@
     </section>
             <!-- Main content -->
         <section class="content">
-
             <div class="row">
                 <div class="col-lg-6">
                     <div class="box box-info">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <b>Tipo Específico IEU:</b> valores públicados
+                            <div class="box-tools pull-right">
+                                <button disabled type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            </div>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            
+                                <dl class="dl-horizontal">
+                                    <dt></dt>
+                                    <dd></dd>
+                                    <dt></dt>
+                                    <dd><p ALIGN="justify"></p></dd>
+                                </dl>
                         </div>
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
                 </div>
                 <div class="col-lg-6">
-                    <form class="form-horizontal" role="form" {% if agregar %}action=""{% else %}action=""{% endif %} method="post">
+                    <form class="form-horizontal" role="form" action="" method="post">
                         <div class="box box-warning">
                             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                            <div class="box-header">
+                            <div class="box-header with-border">
                                 <b>Tipo Específico IEU:</b> valores en revisión
+                                <div class="box-tools pull-right">
+                                    <button disabled type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
                             </div>
+
                             <!-- /.box-header -->
                             <div class="box-body">
-                                {% for field in form %}
                                     <div class="form-group">
-                                        <label for="{{ field.id_for_label }}" class="col-sm-3 control-label">{{ field.label }}</label>
                                         <div class="col-sm-9">
-                                            {{ field }}
+                                            {{ form }}
                                         </div>
                                         <span class="help-block">
-                                            {% for error in field.errors %}
+                                            {% for error in form.errors %}
                                                 <ul>
                                                     <li class="text-red">{{ error }}</li>
                                                 </ul>
                                             {% endfor %}
                                         </span>
                                     </div>
-                            {% endfor %}
                             </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary pull-right">{%if agregar %}Agregar{% else %}Editar{% endif %}</button>
@@ -77,7 +85,6 @@
 
 {% block javascripts %}
     {{ super() }}
-    <script src="{{ static('librerias/PACE/pace.min.js') }}"></script>
     <!-- Auto Complete Light -->
     <script type="text/javascript" src="{{ static('autocomplete_light/jquery.init.js') }}"></script>
     <script type="text/javascript" src="{{ static('autocomplete_light/autocomplete.init.js') }}"></script>
@@ -85,4 +92,23 @@
     <script type="text/javascript" src="{{ static('autocomplete_light/select2.js') }}"></script>
     <!-- Formset -->
     <script src="{{ static('formset/jquery.formset.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('elementoDom').formset({
+                prefix: '',
+                addText: 'Agregar SFC',
+                deleteText: 'Quitar',
+            });
+            $( ".add-row" ).click(function() {
+                var formCount = $('#id_carrerasfc_set-TOTAL_FORMS').val();
+                $('#id_carrerasfc_set-' + (formCount-1) + '-sfc').select2();
+            });
+        });
+
+        $(function () {
+          //Initialize Select2 Elements
+          $('#id_carrerasfc_set-0-sfc').select2();
+          
+        });
+    </script>
 {% endblock javascripts %}
